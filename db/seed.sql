@@ -1,5 +1,5 @@
-drop table posts;
-drop table users;
+DROP TABLE if exists users cascade;
+DROP TABLE if exists posts cascade;
 
 CREATE TABLE users (
     user_id serial primary key,
@@ -17,3 +17,10 @@ CREATE TABLE posts (
 );
 
 ALTER TABLE users ALTER COLUMN password TYPE text;
+
+INSERT INTO users (username, password, profile_pic)
+VALUES (
+'bob',
+'$2b$10$CPpV.sIrav1hUvzYdGezzua9gbBsWa32KPZfNlAagUQyykiC5y/im',
+'https://robohash.org/asdfafa'
+)
