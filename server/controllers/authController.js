@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
     login: async (req, res) => {
+        console.log('Fired Login', req.body)
         const db = req.app.get('db');
         const {username, password} = req.body;
         const user = await db.check_user(username);
@@ -22,6 +23,7 @@ module.exports = {
         }
     },
     register: async (req, res) => {
+        console.log('Fired Register', req.body)
         const db = req.app.get('db');
         const {username, password, profile_pic} = req.body;
         const existingUser = await db.check_user(username);
@@ -39,10 +41,12 @@ module.exports = {
         res.status(200).send(req.session.user)
     },
     logout: (req, res) => {
+        console.log('Fired Logout')
         req.session.destroy();
         res.sendStatus(200);
     },
     getUser: (req, res) => {
+        console.log('Fired GetUser')
         if(req.session.user){
             res.status(200).send(req.session.user)
         } else {

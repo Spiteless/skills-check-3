@@ -6,6 +6,7 @@ const app = express();
 
 const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env;
 const auth = require('./controllers/authController');
+const post = require('./controllers/postController');
 
 app.use(express.json());
 app.use(session({
@@ -26,9 +27,16 @@ massive({
     }).catch( err => console.log(err))
 
 // endpoints
-app.post('/auth/login', auth.login)
+// auth
+app.post('/post/login', auth.login)
 app.post('/auth/register', auth.register)
 app.get('/auth/logout', auth.logout)
 app.get('/auth/user', auth.getUser)
+
+//post
+app.get("/api/posts/", post.searchPosts);
+app.get("/api/post/:id", post.getPost);
+app.post("/api/post/", post.addPost);
+
 
 app.listen(SERVER_PORT, ()=> console.log(`Connected to port ${SERVER_PORT}`))

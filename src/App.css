@@ -1,38 +1,481 @@
-.App {
-  text-align: center;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/* body {
+  width: 100px;
+  height: 100vh;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#ff7abe), to(#ff9770));
+  background-image: -webkit-linear-gradient(bottom, #ff7abe, #ff9770);
+  background-image: -o-linear-gradient(bottom, #ff7abe, #ff9770);
+  background-image: linear-gradient(0deg, #ff7abe, #ff9770);
+} */
+
+.Nav {
+  width: 100px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  color: #fff;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#ff7abe), to(#ff9770));
+  background-image: -webkit-linear-gradient(bottom, #ff7abe, #ff9770);
+  background-image: -o-linear-gradient(bottom, #ff7abe, #ff9770);
+  background-image: linear-gradient(0deg, #ff7abe, #ff9770);
+  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, .1), 5px 0 5px rgba(0, 0, 0, .2);
+  box-shadow: 10px 0 20px 0 rgba(0, 0, 0, .1), 5px 0 5px rgba(0, 0, 0, .2)
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Nav>div {
+  margin: 0 0 45px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-profile-container {
+  height: 100px;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  align-items: center
+}
+
+.nav-profile-pic {
+  width: 70px;
+  height: 70px;
+  background-color: #fff;
+  background-position: 50%;
+  background-size: cover;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 20px #333;
+  box-shadow: 0 0 20px #333
+}
+
+.nav-links {
+  height: 120px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
   align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between
+}
+
+.nav-img {
+  width: 40px
+}
+
+.logout {
+  position: absolute;
+  bottom: 20px; 
+  left: 30px
+}
+
+.Auth {
+  width: 100vw;
+  height: 100vh;
+  background-image: -webkit-linear-gradient(351deg, #ff70a6, #ff9770 40%, #ffd670 73%, #e9ff70);
+  background-image: -o-linear-gradient(351deg, #ff70a6, #ff9770 40%, #ffd670 73%, #e9ff70);
+  background-image: linear-gradient(99deg, #ff70a6, #ff9770 40%, #ffd670 73%, #e9ff70);
+  position: absolute;
+  top: 0;
+  left: 0;
+  -ms-flex-pack: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  color: #fff
+}
+
+.Auth, .auth-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center
+}
+
+.auth-container {
+  border-radius: 8px;
+  -webkit-box-shadow: 0 14px 28px 0 rgba(0, 0, 0, .25), 0 10px 10px 0 rgba(0, 0, 0, .26);
+  box-shadow: 0 14px 28px 0 rgba(0, 0, 0, .25), 0 10px 10px 0 rgba(0, 0, 0, .26);
+  background-image: -webkit-linear-gradient(353deg, #ff7a6e, #ffd670);
+  background-image: -o-linear-gradient(353deg, #ff7a6e, #ffd670);
+  background-image: linear-gradient(97deg, #ff7a6e, #ffd670);
+  width: 35vw;
+  height: 55vh;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  padding: 20px
+}
+
+.auth-container h1, h2 {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.auth-sub-head {
+  align-self: flex-start;
+  font-size: 20px;
+  font-weight: 500;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.auth-container h1 {
+  /* color: white; */
+  font-size: 80px;
+  font-weight: 700
+}
+
+.auth-input {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  /* justify-content: space-between; */
+  align-self: flex-end;
+  width: 55%
+}
+
+.auth-input>input:focus {
+  outline-color: #ff9770;
+  outline-width: 5px
+}
+
+.auth-button-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 55%
+}
+
+.auth-row{ 
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
+
+.Dashboard {
+  width: 70%;
+  margin: 0 auto
+}
+
+.dashboard-container {
+  border-radius: 2px;
+  background-color: #fff;
+  padding: 20px
+}
+
+
+
+.dashboard-filter {
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 10px 0
+}
+
+
+.dashboard-filter, .dashboard-search-box {
+  display: -ms-flexbox;
+  display: flex
+}
+
+.dashboard-search-box {
+  width: 75%
+}
+
+.dashboard-search-bar {
+  height: 25px;
+  width: 90%
+}
+
+.dashboard-search-button {
+  height: 25px;
+  width: 25px;
+  background-color: #ff9770;
+  border-radius: 2px;
+  padding: 2px
+}
+
+#dashboard-reset {
+  height: 25px;
+  padding: 5px 10px
+}
+
+.dashboard-check-box {
+  -ms-flex-pack: distribute;
+  justify-content: space-around
+}
+
+.dashboard-check-box, .dashboard-post-box {
+  display: -ms-flexbox;
+  display: flex
+}
+
+.dashboard-post-box {
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 10px 0
+}
+
+.dashboard-post-box>h3 {
+  font-size: 30px
+}
+
+.Post {
+  width: 70%;
+  min-height: 400px;
+  margin: 0 auto
+}
+
+.post-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between
+}
+
+.post-form-container {
+  margin: 10px 0 0
+}
+
+.post-img {
+  border-radius: 2px;
+  width: 50%;
+  height: 300px;
+  background-position: 50%;
+  background-size: cover;
+  margin: 0 15px 0 0;
+  float: left;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .2);
+  background-color: #fff
+}
+
+.post-form-container>p {
+  word-wrap: break-word;
+  text-indent: 25px;
+  line-height: 30px
+}
+
+.oops-box {
+  padding: 50px
+}
+
+.Form {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 700
+}
+
+.form-img-prev {
+  width: 50%;
+  height: 300px;
+  background-position: 50%;
+  background-size: cover;
+  margin: 10px auto 5px;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .2);
+  background-color: #fff
+}
+
+.form-input {
+  width: 90%;
+  height: 50px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin: 0 auto
+}
+
+.form-text-box {
+  width: 90%;
+  margin: 3px auto 10px
+}
+
+.form-text-box>p {
+  margin: 0 0 7px
+}
+
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  font-family: Open Sans, Courier New, Courier, monospace;
+  font-size: 12px
+}
+
+.form-button {
+  position: relative;
+  left: 90%
+}
+
+.App {
+  padding: 20px 20px 20px 100px;
+  font-family: Open Sans, Courier New, Courier, monospace;
+  min-width: 100%;
+  min-height: 100vh
+}
+
+.btn-dark {
+  border-radius: 1px;
+  background-image: -webkit-radial-gradient(50% -46%, circle, #737373, #403d39);
+  background-image: -o-radial-gradient(50% -46%, circle, #737373, #403d39);
+  background-image: radial-gradient(circle at 50% -46%, #737373, #403d39);
+  padding: 10px 20px;
+  color: #fff;
+  border: none
+}
+
+.form-container, .btn-dark {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .2)
+}
+
+.form-container {
+  border-radius: 2px;
+  background-color: #fff;
+  padding: 20px
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #ff9770;
+  margin: 0 0 10px
+}
+
+.author-box {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  width: 30%
+}
+
+.author-box>img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+  margin: 0 5px
+}
+
+@-webkit-keyframes rotating {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg)
   }
   to {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn)
   }
 }
+
+@keyframes rotating {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg)
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn)
+  }
+}
+
+.load-box {
+  margin: 100px auto;
+  width: 200px;
+  position: relative;
+  -webkit-animation: rotating .75s linear infinite;
+  animation: rotating .75s linear infinite
+}
+
+.load-background {
+  border-radius: 50%;
+  border: 10px solid #ff70a6;
+  border: 10px solid #ffd670
+}
+
+.load, .load-background {
+  width: 200px;
+  height: 200px
+}
+
+.load {
+  border-radius: 50%;
+  border-left: 10px solid #ffd670;
+  border-top: 10px solid #ffd670;
+  border-left: 10px solid #ff70a6;
+  border-top: 10px solid #ff70a6;
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+a {
+  text-decoration: none;
+  color: inherit
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block
+}
+
+body {
+  line-height: 1
+}
+
+ol, ul {
+  list-style: none
+}
+
+blockquote, q {
+  quotes: none
+}
+
+blockquote:after, blockquote:before, q:after, q:before {
+  content: "";
+  content: none
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+*, :after, :before {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit
+}
+
+/*# sourceMappingURL=main.f7736007.css.map*/

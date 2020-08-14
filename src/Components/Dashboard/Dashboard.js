@@ -1,7 +1,47 @@
-import React from 'react';
 
-const Dashboard = () => {
-    return <div> This is the dashboard</div>
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+
+export class Dashboard extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            searchInput: '',
+            checkbox: true,
+            posts: []
+        }
+    }
+
+    handleChangeUniversal = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        // console.log(e.target.name, e.target.value, this.state)
+    }
+
+    render() {
+        const mappedPosts = (
+            <div className="mapped"><h2>MAPPED POSTS</h2></div>
+        )
+
+        return (
+            <div className="Dashboard">
+
+                <div className="dashboard-container dashboard-filter">
+                    <input type="text" placeholder="Search by Title" />
+                </div>
+                <div className="dashboard-search-box">
+                    
+                </div>
+                <div className="dashboard-checkbox">
+
+                </div>
+                    {mappedPosts}
+            </div>
+        )
+
+    }
 }
 
 export default Dashboard;
