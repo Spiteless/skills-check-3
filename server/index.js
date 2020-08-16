@@ -28,7 +28,7 @@ massive({
 
 // endpoints
 // auth
-app.post('/post/login', auth.login)
+app.post('/auth/login', auth.login)
 app.post('/auth/register', auth.register)
 app.get('/auth/logout', auth.logout)
 app.get('/auth/user', auth.getUser)
