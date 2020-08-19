@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios'
+import { connect } from "react-redux";
+import { getUser, logoutUser } from "../../ducks/reducer";
 
 class Form extends React.Component {
     constructor(props) {
@@ -20,15 +22,21 @@ class Form extends React.Component {
         // console.log(e.target.value)
     }
 
-    addPost = () => {
-        console.log('props:',this.props)
-        console.log('state:',this.state)
+    addPost = (userId) => {
+        console.log('props:', this.props)
+        console.log('state:', this.state)
         const { title, image, content } = this.state
-
-        console.log("addPost:",{ title, image, content })
-        axios.post(`/api/post/`, { title, image, content }).then(() => {
-            this.props.history.push("/dashboard");
-        });
+        const newPost = { title, image, content, userId }
+        let isEmpty = title * image * content * userId
+        // if (!isEmpty) { 
+        //     alert('Please fill out all fields in Form')
+        // } else {
+            console.log("addPost:", newPost)
+    
+            axios.post(`/api/post/`, newPost).then(() => {
+                this.props.history.push("/dashboard");
+            });
+        // }
     };
 
     render() {
@@ -72,7 +80,7 @@ class Form extends React.Component {
                         ></textarea>
                         <button
                             className="btn-dark form-btn"
-                            onClick={this.addPost}
+                            onClick={ () => this.addPost(this.props.userId)}
                         >Post</button>
                     </div>
 
@@ -83,4 +91,13 @@ class Form extends React.Component {
     }
 }
 
-export default Form;
+const mapStateToProps = reduxState => {
+    console.log("reduxState in Form:", reduxState)
+    
+    return {
+        userId: reduxState.userId,
+        placeholder: "https://via.placeholder.com/550x250"
+    };
+};
+
+export default connect(mapStateToProps)(Form);

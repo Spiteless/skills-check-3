@@ -4,7 +4,7 @@ module.exports = {
     searchPosts: async (req, res) => {
         const { userposts, search } = req.query;
         const db = req.app.get("db");
-        const allPosts = await db.get_posts();
+        const allPosts = await db.get_all_posts();
         let filtered = []
     
         if (userposts === "true" && search) {
@@ -32,11 +32,19 @@ module.exports = {
         post = post[0];
         res.status(200).send(post);
       },
-      addPost: (req, res) => {
-        console.log(req.body)
-        const { title, image, content } = req.body;
+      getAllPosts: async (req, res) => {
         const db = req.app.get("db");
-        db.create_post([title, image, content, req.session.userId]);
+        let posts = await db.get_all_posts();
+        res.status(200).send(posts);
+        console.log('getAllPosts', posts)
+      },
+      addPost: (req, res) => {
+        const { title, image, content, userId } = req.body;
+        // const { userId } = req.session.userId
+
+        console.log("New post:",title, image, content, userId)
+        const db = req.app.get("db");
+        db.create_post([title, image, content, userId]);
         res.sendStatus(200);
       }
 }

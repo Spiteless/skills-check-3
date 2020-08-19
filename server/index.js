@@ -35,6 +35,7 @@ app.get('/auth/user', auth.getUser)
 
 //post
 app.get("/api/posts/", post.searchPosts);
+// app.get("/api/posts/", post.getAllPosts);
 app.get("/api/post/:id", post.getPost);
 app.post("/api/post/", post.addPost);
 

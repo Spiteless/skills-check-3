@@ -13,6 +13,17 @@ export class Dashboard extends Component {
         }
     }
 
+    getPosts = () => {
+            axios.get(`/api/posts/`).then((res) => {
+                this.setState({posts: res.data})
+                console.log(res.data)
+                // this.props.history.push("/dashboard");
+            });
+    }
+    componentDidMount(){
+
+    }
+
     handleChangeUniversal = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -35,7 +46,7 @@ export class Dashboard extends Component {
                     
                 </div>
                 <div className="dashboard-checkbox">
-
+                    
                 </div>
                     {mappedPosts}
             </div>
