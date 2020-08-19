@@ -32,6 +32,7 @@ app.post('/auth/login', auth.login)
 app.post('/auth/register', auth.register)
 app.get('/auth/logout', auth.logout)
 app.get('/auth/user', auth.getUser)
+app.get('/auth/me', auth.getUser)
 
 //post
 app.get("/api/posts/", post.searchPosts);
