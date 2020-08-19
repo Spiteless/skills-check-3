@@ -46,11 +46,11 @@ export class Dashboard extends Component {
                 <div className="dashboard-container dashboard-filter">
                     <input type="text" placeholder="Search by Title" />
                     <div className="dashboard-search-icon">
-                        <p>Search</p>
+                        {/* <p>Search</p> */}
                         <img className="dashboard-search-button" src={require('../../media/search.png')} alt=""/>
+                        <button>Reset</button>
                     </div>
                     <div className="dashboard-checkbox">
-                        <button>Reset</button>
                     </div>
                 </div>
                 {mappedPosts}

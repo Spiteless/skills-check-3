@@ -169,8 +169,9 @@
   background-color: #e6e6e6;
   /* background-color: red; */
   padding: 20px;
-  display: flex;
-  flex-direction: row;
+  display: inline-block;
+  /* flex-direction: row;
+  justify-items: left; */
 }
 
 
