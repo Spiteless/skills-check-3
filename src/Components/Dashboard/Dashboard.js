@@ -11,17 +11,18 @@ export class Dashboard extends Component {
             checkbox: true,
             posts: []
         }
+        this.getPosts = this.getPosts.bind(this)
     }
 
     getPosts = () => {
-            axios.get(`/api/posts/`).then((res) => {
-                this.setState({posts: res.data})
-                console.log(res.data)
-                // this.props.history.push("/dashboard");
-            });
+        axios.get(`/api/posts/`).then((res) => {
+            this.setState({ posts: res.data })
+            console.log('Dashboard:Get Posts', res.data)
+            // this.props.history.push("/dashboard");
+        });
     }
-    componentDidMount(){
-
+    componentDidMount() {
+        this.getPosts()
     }
 
     handleChangeUniversal = (e) => {
@@ -32,8 +33,11 @@ export class Dashboard extends Component {
     }
 
     render() {
+        const posts = (post) => {
+            return
+        }
         const mappedPosts = (
-            <div className="mapped"><h2>MAPPED POSTS</h2></div>
+            <div className="mapped"> </div>
         )
 
         return (
@@ -41,14 +45,15 @@ export class Dashboard extends Component {
 
                 <div className="dashboard-container dashboard-filter">
                     <input type="text" placeholder="Search by Title" />
+                    <div className="dashboard-search-icon">
+                        <p>Search</p>
+                        <img className="dashboard-search-button" src={require('../../media/search.png')} alt=""/>
+                    </div>
+                    <div className="dashboard-checkbox">
+                        <button>Reset</button>
+                    </div>
                 </div>
-                <div className="dashboard-search-box">
-                    
-                </div>
-                <div className="dashboard-checkbox">
-                    
-                </div>
-                    {mappedPosts}
+                {mappedPosts}
             </div>
         )
 

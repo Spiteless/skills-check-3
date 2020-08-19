@@ -166,9 +166,14 @@
 
 .dashboard-container {
   border-radius: 2px;
-  background-color: #fff;
-  padding: 20px
+  background-color: #e6e6e6;
+  /* background-color: red; */
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
 }
+
+
 
 
 
@@ -180,6 +185,9 @@
   margin: 10px 0
 }
 
+.dashboard-filter input {
+  width: 70%
+}
 
 .dashboard-filter, .dashboard-search-box {
   display: -ms-flexbox;
@@ -208,7 +216,7 @@
   padding: 5px 10px
 }
 
-.dashboard-check-box {
+.dashboard-checkbox {
   -ms-flex-pack: distribute;
   justify-content: space-around
 }
