@@ -33,11 +33,21 @@ export class Dashboard extends Component {
     }
 
     render() {
-        const posts = (post) => {
-            return
+        const posts = (post) => {return ( 
+                <div className="post-container">
+                        <h2>This is a post placeholder</h2>
+                        <p>{post.title}</p>
+                        <p>{post.post_img}</p>
+                        <p>{post.content}</p>
+
+                </div>)
         }
         const mappedPosts = (
-            <div className="mapped"> </div>
+            <div className="mapped"> 
+                {console.log(this.state.posts)}
+                <h3>Mapped posts section</h3>
+                {this.state.posts.map(posts)}
+            </div>
         )
 
         return (
@@ -49,6 +59,9 @@ export class Dashboard extends Component {
                         {/* <p>Search</p> */}
                         <img className="dashboard-search-button" src={require('../../media/search.png')} alt=""/>
                         <button>Reset</button>
+                        <div className="left">
+                            <input type="checkbox"/> <p>My Posts</p>
+                        </div>
                     </div>
                     <div className="dashboard-checkbox">
                     </div>
