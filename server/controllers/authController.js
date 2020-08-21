@@ -48,6 +48,7 @@ module.exports = {
     getUser: (req, res) => {
         console.log('Fired GetUser')
         if(req.session.user){
+            console.log("getUser", req.session.user)
             res.status(200).send(req.session.user)
         } else {
             res.sendStatus(404)

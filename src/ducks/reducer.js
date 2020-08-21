@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const initialState = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    user: {}
 }
 
 const LOGIN_USER = 'LOGIN_USER';
@@ -9,6 +10,7 @@ const LOGOUT_USER = 'LOGOUT_USER';
 const GET_USER = 'GET_USER';
 const UPDATE_USER = 'UPADTE_USER';
 const CLEAR_USER = 'CLEAR_USER';
+const GET_ME = 'GET_ME';
 
 console.log("initialized reducer")
 
@@ -28,7 +30,11 @@ export function logoutUser(){
 }
 
 export function getUser(){
-    const user = axios.get('/auth/user')
+    const user =  axios.get('/auth/user').then( res => {
+        console.log("getUser reducer", res.data)
+        return res.data
+    })
+
     return {
         type: GET_USER,
         payload: user
@@ -39,6 +45,7 @@ export function getUser(){
 
 export default function(state = initialState, action){
     const {type, payload} = action
+    console.log("Switch case:", action)
     switch(action.type){
         case LOGIN_USER:
             console.log("hit LOGIN_USER via reducer")
@@ -48,7 +55,7 @@ export default function(state = initialState, action){
         case GET_USER + "_PENDING":
             return state
         case GET_USER + "_FULFILLED":
-            return {...state, user: action.payload.data, isLoggedIn: true}
+            return {...state, user: payload, isLoggedIn: true}
         case GET_USER + "_REJECTED":
             return initialState
         default:

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import DashboardComponent from './DashboardComponent'
 
 export class Dashboard extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ export class Dashboard extends Component {
     }
 
     getPosts = () => {
-        axios.get(`/api/posts/`).then((res) => {
+        axios.get(`/api/posts-all/`).then((res) => {
             this.setState({ posts: res.data })
             console.log('Dashboard:Get Posts', res.data)
             // this.props.history.push("/dashboard");
@@ -33,18 +34,26 @@ export class Dashboard extends Component {
     }
 
     render() {
-        const posts = (post) => {return ( 
-                <div className="post-container">
-                        <h2>This is a post placeholder</h2>
-                        <p>{post.title}</p>
-                        <p>{post.post_img}</p>
-                        <p>{post.content}</p>
+        const posts = (post) => {
+            return (
+                <DashboardComponent
+                    title={post.title}
+                    author={post.username}
+                    key={post.post_id}
+                    post_id={post.post_id}
+                />
+                // <div className="post-container">
+                //     <h2>This is a post placeholder</h2>
+                //     <p>{post.title}</p>
+                //     <p>{post.post_img}</p>
+                //     <p>{post.content}</p>
 
-                </div>)
+                // </div>
+                )
         }
         const mappedPosts = (
-            <div className="mapped"> 
-                {console.log(this.state.posts)}
+            <div className="mapped">
+                {console.log("Dashboard posts:", this.state.posts)}
                 <h3>Mapped posts section</h3>
                 {this.state.posts.map(posts)}
             </div>
@@ -53,17 +62,17 @@ export class Dashboard extends Component {
         return (
             <div className="Dashboard">
 
-                <div className="dashboard-container dashboard-filter">
-                    <input type="text" placeholder="Search by Title" />
-                    <div className="dashboard-search-icon">
-                        {/* <p>Search</p> */}
-                        <img className="dashboard-search-button" src={require('../../media/search.png')} alt=""/>
+                <div className="dashboard-container mom-unit">
+                    <div className="dashboard-filter dashboard-search-container">
+                        <input type="text" placeholder="Search by Title" />
+                        <img className="dashboard-search-button" src={require('../../media/search.png')} alt="" />
+
                         <button>Reset</button>
-                        <div className="left">
-                            <input type="checkbox"/> <p>My Posts</p>
-                        </div>
+
                     </div>
-                    <div className="dashboard-checkbox">
+                    <div className="dashboard-checkbox left">
+                        <p>My Posts</p>
+                        <input type="checkbox" />
                     </div>
                 </div>
                 {mappedPosts}
@@ -73,4 +82,13 @@ export class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+const mapStateToProps = reduxState => {
+    console.log("reduxState in Dashboard:", reduxState)
+
+    return {
+        userId: reduxState.userId,
+        placeholder: "https://via.placeholder.com/550x250"
+    };
+};
+
+export default connect(mapStateToProps, {})(Dashboard);

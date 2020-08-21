@@ -159,30 +159,106 @@
   flex-direction: row;
 }
 
+.mapped {
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .2)
+  /* border: red solid 2px; */
+}
+
 .Dashboard {
   width: 70%;
   margin: 0 auto
 }
 
+.Dashboard-Component{
+  padding: 20px;
+  display: flex;
+
+
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 10px 0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .2);
+
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dash-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.dash-row p{
+  display: inline-block;
+}
+
+.Dashboard-Component h2{
+  color: black;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.dashboard-author-box{
+  /* border: 1px green solid; */
+}
+
+.dashboard-author-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+  margin: 0 5px
+}
 .dashboard-container {
   border-radius: 2px;
   background-color: #e6e6e6;
   /* background-color: red; */
   padding: 20px;
-  display: inline-block;
+  display: flex;
   /* flex-direction: row;
   justify-items: left; */
 }
 
 
+.dashboard-search-container {
+  align-items: baseline;
+  width: 400px;
+  display: flex;
+  align-items: flex-start;
+}
 
+.dashboard-search-container input{
+  width: 400px;
+}
 
+.mom-unit {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.mom-unit img{
+  height: 25px;
+  width: 25px;
+}
+
+.mom-unit input, .mom-unit img, .mom-unit button{
+  height: 25px;
+  /* padding: 0;
+  margin: 0; */
+}
 
 .dashboard-filter {
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  /* -ms-flex-align: center; */
+  /* align-items: center; */
+  /* -ms-flex-pack: justify; */
+  /* justify-content: space-between; */
   margin: 10px 0
 }
 
@@ -219,7 +295,9 @@
 
 .dashboard-checkbox {
   -ms-flex-pack: distribute;
-  justify-content: space-around
+  justify-content: space-around;
+  display: flex;
+  align-items: center
 }
 
 .dashboard-check-box, .dashboard-post-box {
